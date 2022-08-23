@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ApplyAway</title>
+
+
+<style>
+  td {
+  background-color: white;
+  width: 1%;
+  padding:10px;
+}
+
+th{
+background-color:#D3D3D3;
+height: 50px
+border-color:#D3D3D3;
+}
+
+times {
+  font-family: 'Pantra';
+}
+
+</style>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+
+{%if user.is_authenticated%}
+<h1 class="text-dark"><times>Hello {{user.first_name}}</times></h1>
+<h1><a href="accounts/logout"><times>Logout</times></a></h1>
+{%else%}
+<h1><a href="accounts/register">Register</a></h1><br>
+<h1><a href="accounts/login">Login</a></h1>
+  {%endif%}
+<body style="background-color:#34cbcd;">
+<center><h1 class="text-dark"><times>ApplyAway</times></h1></center>
+<br>
+
+{%if user.username%}
+{%else%}
+<a href="{% url 'privacy' %}">Privacy Policy</a>
+
+
+<table>
+<center><td><center>Welcome to ApplyAway!<br>
+    If you need to make a new account,
+click on Register and make sure to register with the same username as used in the web extension. <br>
+    If you are a returning user, simply login and ApplyAway!</center></td></center>
+    </table>
+{%endif%}
+
+	<center><table style="width:95%">
+<center>
+
+ {%if user.username %}
+
+      <th class="border-start border-5"><center>Job Site Used</center></th>
+    <th><center>Job</center></th>
+    <th><center>Company</center></th>
+    <th><center>Description</center></th>
+
+    <th><center>Notes</center></th>
+    <th><center>Date</center></th>
+    <th><center>Applied?</center></th>
+    <th><center></center></th>
+    <th><center><a href="{% url 'add' %}">Add Entry Manually</a></center></th>
+</center>
+
+        {%endif%}
+
+{% for data in datas %}
+{%if data.user == user.username %}
+
+  <tr class="border">
+
+        <td class="border border-5"><center><a href="{{data.Url}}">{{data.Website}}</a></center></td>
+      <td class="border border-5"><center>{{data.Job}}</center></td>
+        <td class="border border-5"><center>{{data.Company}}</center></td>
+       <td class="border border-5" style="width: 10%;">{{data.Description}}</td>
+       <td class="border border-5"><center>{{data.Notes}}</center></td>
+      <td class="border border-5"><center>{{data.Date}}</center></td>
+      <td class="border border-5"><center>{{data.Applied}}</center></td>
+
+      <td><center><a href="{% url 'update-data' data.id %}">Update</a></center></td>
+      <td><center><a href="{% url 'delete' data.id %}">Delete</a></center></td>
+
+
+
+  </tr>
+ {%endif%}
+        {% endfor %}
+
+
+
+
+</table>
+</center>
+
+</body>
+</html>

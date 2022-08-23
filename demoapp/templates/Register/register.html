@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+.container {
+  height: 200px;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body style="background-color:#34cbcd;">
+<div class = "container">
+<div class = "center">
+<form action = "register" method = "post">
+
+    {% csrf_token %}
+
+    <input type="text" name="first_name" placeholder="First Name"><br>
+    <input type="text" name="last_name" placeholder="Last Name"><br>
+    <input type="text" name="username" placeholder="Username"><br>
+    <input type="email" name="email" placeholder="Email"><br>
+    <input type="text" name="password1" placeholder="Password"><br>
+    <input type="text" name="password2" placeholder="Confirm Password"><br>
+    <input type="submit">
+
+</form>
+    </div>
+    </div>
+<center>
+{%for message in messages%}
+<h3>{{message}}</h3>
+{%endfor%}
+</center>
+
+</body>
+</html>

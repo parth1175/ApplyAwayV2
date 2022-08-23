@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+   <style>
+.container {
+  height: 200px;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body style="background-color:#34cbcd;">
+
+    <div class="container">
+        <div class = "center">
+<form action = "addrecord/{{updata.id}}" method = "post">
+
+    {% csrf_token %}
+
+    <input type="text" name="url"  placeholder="URL"><br>
+    <input type="text" name="website"  placeholder="Website"><br>
+    <input type="text" name="company"  placeholder="Company"><br>
+    <input type="text" name="job"  placeholder="Job"><br>
+    <input type="text" name="description"  placeholder="Description"><br>
+    <input type="text" name="notes"  placeholder="Notes"><br>
+    <input type="text" name="applied"  placeholder="Applied?"><br>
+
+    <input type="submit" value="Submit">
+
+        </div>
+    </div>
+
+</form>
+</body>
+</html>

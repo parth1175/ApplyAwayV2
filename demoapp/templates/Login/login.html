@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+.container {
+  height: 200px;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body style="background-color:#34cbcd;">
+
+    <div class="container">
+        <div class = "center">
+<form action='login' method="post">
+{%csrf_token%}
+    <input type="text" name="username" placeholder="Username"><br>
+    <input type="password" name="password" placeholder="Password"><br>
+    <input type="Submit">
+</form>
+        </div>
+    </div>
+<center>
+{%for message in messages%}
+<h3>{{message}}</h3>
+{%endfor%}
+    </center>
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCOrXSHpGy_n5chedQNWgrmQLlXNAlFCRk",
+    authDomain: "applyaway-7d759.firebaseapp.com",
+    projectId: "applyaway-7d759",
+    storageBucket: "applyaway-7d759.appspot.com",
+    messagingSenderId: "952876015288",
+    appId: "1:952876015288:web:f196825caac1bd2ce29e4d",
+    measurementId: "G-PB91Y8451J"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+</body>
+</html>
