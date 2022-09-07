@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ApplyAwayData1',
         'USER':'postgres',
-        'PASSWORD':'firstphone13',
+        'PASSWORD':'Password123',
         'HOST':'localhost'
     }
 #    'Heroku' : {
